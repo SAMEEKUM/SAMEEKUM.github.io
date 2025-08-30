@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">DEMO</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="#">เกี่ยวกับเรา</a></li>
+                <li class="dropdown">
+                    <span>โครงการ</span>
+                    <div class="mega-menu">
+                        <div class="mega-column">
+                            <h4>ประเภทโครงการ</h4>
+                            <ul>
+                                <li><a href="#">บ้านเดี่ยว</a></li>
+                                <li><a href="#">บ้านแฝด</a></li>
+                                <li><a href="#">ทาวน์โฮม</a></li>
+                                <li><a href="#">คอนโดมิเนียม</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#">ติดต่อเรา</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1 class="slide-left">DEMO</h1>
+            <p class="slide-right">Demo Project</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects fade-in">
+        <h2>แนะนำโครงการ</h2>
+        <div class="project-grid">
+            <a href="project-one.html" class="project-card fade-in">
+                <img src="https://assets.sansiri.com/o77site/mcp/saransiri-srivaree-2-unit-260.webp" alt="Project">
+                <h3>Project One</h3>
+                <p>Demo</p>
+            </a>
+
+            <a href="project-two.html" class="project-card fade-in">
+                <img src="https://assets.sansiri.com/o77site/sansiri-project-thebase-rise-p.jpg" alt="Project">
+                <h3>Project Two</h3>
+                <p>Demo</p>
+            </a>
+
+            <a href="project-three.html" class="project-card fade-in">
+                <img src="https://assets.sansiri.com/o77site/sansiri-bugaan-krungthep-kreetha-thumbnail-landscape-935x745.jpg" alt="Project">
+                <h3>Project Three</h3>
+                <p>Demo</p>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Demo Project</p>
+    </footer>
+
+    <script>
+        // Fade-in on scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
