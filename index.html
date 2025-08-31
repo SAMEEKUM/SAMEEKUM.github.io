@@ -1,435 +1,348 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ตัวอย่างเว็บไซต์อสังหาริมทรัพย์ - ไมด้า แอสเซ็ท</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Noto Sans Thai', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #2d2d2d;
-      line-height: 1.6;
-    }
-
-    /* Navbar */
-    .navbar {
-      background-color: #0a1a3a;
-      padding: 20px 0;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      transition: background-color 0.3s ease;
-    }
-    .navbar.scrolled {
-      background-color: rgba(10, 26, 58, 0.95);
-    }
-    .navbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 30px;
-    }
-    .navbar .logo {
-      color: #d4a017;
-      font-size: 2em;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 1px;
-    }
-    .navbar .nav-links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-    }
-    .navbar .nav-links li {
-      margin-left: 30px;
-    }
-    .navbar .nav-links a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 1.1em;
-      font-weight: 400;
-      transition: color 0.3s ease;
-    }
-    .navbar .nav-links a:hover {
-      color: #d4a017;
-    }
-    .navbar .menu-toggle {
-      display: none;
-      color: #ffffff;
-      font-size: 1.8em;
-      cursor: pointer;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 30px;
-    }
-
-    /* Header (Landing Page) */
-    .header {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; /* เต็มหน้าจอ */
-      padding: 0 30px;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&h=700');
-      background-size: cover;
-      background-position: center;
-      color: #ffffff;
-      margin-top: 0;
-    }
-    .header h1 {
-      margin: 0;
-      font-size: 3.5em;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    .header p {
-      font-size: 1.4em;
-      font-weight: 300;
-      margin: 15px 0;
-    }
-    .cta-button {
-      display: inline-block;
-      padding: 15px 40px;
-      background-color: #d4a017;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 700;
-      font-size: 1.1em;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    .cta-button:hover {
-      background-color: #b88c14;
-      transform: translateY(-2px);
-    }
-
-    /* Projects */
-    .projects {
-      padding: 80px 30px;
-      text-align: center;
-      background-color: #ffffff;
-    }
-    .projects h2 {
-      font-size: 2.5em;
-      font-weight: 700;
-      margin-bottom: 40px;
-      color: #0a1a3a;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .project {
-      background-color: #ffffff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, opacity 1s ease-out;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .project.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .project:hover {
-      transform: translateY(-5px);
-    }
-    .project img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-    .project h3 {
-      font-size: 1.8em;
-      margin: 15px 0;
-      color: #0a1a3a;
-    }
-    .project p {
-      padding: 0 20px 20px;
-      color: #666;
-      font-size: 1.1em;
-    }
-
-    /* Interactive */
-    .interactive {
-      background-color: #ffffff;
-      padding: 60px 30px;
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin: 40px 0;
-    }
-    .interactive h2 {
-      font-size: 2.2em;
-      color: #0a1a3a;
-      margin-bottom: 20px;
-    }
-    .interactive select {
-      padding: 12px;
-      font-size: 1.1em;
-      margin: 15px;
-      width: 250px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-    }
-    .interactive p#projectInfo {
-      font-size: 1.2em;
-      color: #333;
-      margin-top: 20px;
-    }
-
-    /* About */
-    .about {
-      padding: 80px 30px;
-      background-color: #ffffff;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 40px;
-      justify-content: center;
-    }
-    .about .content {
-      flex: 1;
-      min-width: 300px;
-      max-width: 600px;
-      text-align: left;
-    }
-    .about .image {
-      flex: 1;
-      min-width: 300px;
-      max-width: 600px;
-    }
-    .about .image iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    .about h2 {
-      font-size: 2.5em;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #0a1a3a;
-    }
-    .about p {
-      font-size: 1.2em;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #0a1a3a;
-      color: #ffffff;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    footer a {
-      color: #d4a017;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Fade-in Animation for Sections */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .navbar .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: #0a1a3a;
-        padding: 20px;
-      }
-      .navbar .nav-links.active {
-        display: flex;
-      }
-      .navbar .nav-links li {
-        margin: 15px 0;
-      }
-      .navbar .menu-toggle {
-        display: block;
-      }
-      .header h1 {
-        font-size: 2.5em;
-      }
-      .header p {
-        font-size: 1.2em;
-      }
-      .about {
-        flex-direction: column;
-        text-align: center;
-      }
-      .about .content {
-        text-align: center;
-      }
-    }
-  </style>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Web Demo</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="animations.js" defer></script>
 </head>
+
 <body>
+	<header>
+		<div class="container-hero">
+			<div class="container hero">
+				<div class="customer-support">
+					<i class="fa-solid fa-headset"></i>
+					<div class="content-customer-support">
+						<span class="text">ติดต่อสอบถาม</span>
+						<span class="number">012-345-6789</span>
+					</div>
+				</div>
 
-  <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="#home" class="logo">ไมด้า แอสเซ็ท</a>
-      <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">หน้าแรก</a></li>
-        <li><a href="#projects">โครงการ</a></li>
-        <li><a href="#interactive">ค้นหาโครงการ</a></li>
-        <li><a href="#about">เกี่ยวกับเรา</a></li>
-        <li><a href="#closing">ติดต่อเรา</a></li>
-      </ul>
-    </div>
-  </nav>
+				<div class="container-logo">
+					<img src="img\logo.png" alt="Baristas Logo" class="logo">
+				</div>
 
-  <!-- Landing Page -->
-  <div class="header fade-in" id="home">
-    <h1>ยินดีต้อนรับสู่ ไมด้า แอสเซ็ท</h1>
-    <p>สัมผัสประสบการณ์การอยู่อาศัยระดับพรีเมียมในทำเลที่ดีที่สุด</p>
-    <a href="#interactive" class="cta-button">สำรวจโครงการของเรา</a>
-  </div>
 
-  <!-- Projects Section -->
-  <div class="projects fade-in" id="projects">
-    <h2>โครงการเด่นของเรา</h2>
-    <div class="project-grid">
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="The Panora Pattaya">
-        <h3>The Panora Pattaya</h3>
-        <p>คอนโดมิเนียมสุดหรูบนเขาพระตำหนักซอย 5 ห่างจากชายหาดเพียง 250 ม. พร้อมวิวทะเลพาโนรามาและสิ่งอำนวยความสะดวกครบครัน</p>
-      </div>
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="บ้านเดี่ยว">
-        <h3>บ้านเดี่ยวพรีเมียม</h3>
-        <p>บ้านดีไซน์โมเดิร์น พื้นที่กว้างขวางสำหรับครอบครัว</p>
-      </div>
-      <div class="project">
-        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="ทาวน์โฮม">
-        <h3>ทาวน์โฮมโมเดิร์น</h3>
-        <p>ทาวน์โฮมที่ผสานความสะดวกสบายและสไตล์</p>
-      </div>
-    </div>
-  </div>
+				<div class="container-user">
+					<i class="fa-solid fa-user"></i>
+					<i class="fa-solid fa-basket-shopping"></i>
+				</div>
+			</div>
+		</div>
 
-  <!-- Interactive Section -->
-  <div class="interactive fade-in" id="interactive">
-    <h2>ค้นหาโครงการที่ใช่สำหรับคุณ</h2>
-    <p>เลือกประเภทอสังหาฯ เพื่อดูรายละเอียด</p>
-    <select id="projectType" onchange="showProjectInfo()">
-      <option value="">เลือกประเภทโครงการ</option>
-      <option value="condo">คอนโดมิเนียม</option>
-      <option value="house">บ้านเดี่ยว</option>
-      <option value="townhome">ทาวน์โฮม</option>
-    </select>
-    <p id="projectInfo"></p>
-  </div>
+		<div class="container-navbar">
+			<nav class="navbar container">
+				<i class="fa-solid fa-bars"></i>
+				<ul class="menu">
+					<li><a href="#">ติดต่อเรา</a></li>
+					<li><a href="#">โครงการ</a></li>
+					<li><a href="#">บริการ</a></li>
+					<li><a href="#">ความยั่งยืน</a></li>
+					<li><a href="#">ผู้ลงทุนสัมพันธ์</a></li>
+				</ul>
 
-  <!-- About Section -->
-  <div class="about fade-in" id="about">
-    <div class="content">
-      <h2>เกี่ยวกับเรา</h2>
-      <p>บริษัท ไมด้า แอสเซ็ท จำกัด (มหาชน) มุ่งมั่นสร้างสรรค์ที่อยู่อาศัยระดับพรีเมียมที่ผสานดีไซน์ทันสมัยและความยั่งยืน ด้วยประสบการณ์กว่า 30 ปีในวงการอสังหาริมทรัพย์ เรามุ่งเน้นมอบประสบการณ์การอยู่อาศัยที่เหนือระดับในทำเลชั้นนำทั่วประเทศ</p>
-      <p><strong>สำนักงานใหญ่:</strong> บริษัท ไมด้า แอสเซ็ท จำกัด (มหาชน) (สำนักงานใหญ่) เลขที่ 267 ถนน จรัญสนิทวงศ์ แขวงบางอ้อ เขตบางพลัด กรุงเทพมหานคร 10700</p>
-      <a href="#closing" class="cta-button">ติดต่อเรา</a>
-    </div>
-    <div class="image">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.022225204496!2d100.50971731483073!3d13.802638990311326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e299b0a0b9c7f7%3A0x5a8c4b7e7e7e7e7e!2s267%20Charan%20Sanit%20Wong%20Rd%2C%20Bang%20Ao%2C%20Bang%20Phlat%2C%20Bangkok%2010700%2C%20Thailand!5e0!3m2!1sen!2sth!4v1698765432109!5m2!1sen!2sth" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-  </div>
+				<form class="search-form">
+					<input type="search" placeholder="ค้นหาโครงการ..." />
+					<button class="btn-search">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</button>
+				</form>
+			</nav>
+		</div>
+	</header>
 
-  <!-- Footer -->
-  <footer id="closing">
-    <p>ติดต่อเรา: <a href="mailto:info@midaasset.com">info@midaasset.com</a> | โทร: 02-123-4567</p>
-    <p>&copy; 2025 ไมด้า แอสเซ็ท. สงวนลิขสิทธิ์.</p>
-  </footer>
+	<section class="banner">
+		<div class="content-banner">
+			<p>Convenient location</p>
+			<h2>WEBSITE DEMO </h2>
+			<a href="#">จองออนไลน์ตอนนี้</a>
+		</div>
+	</section>
 
-  <!-- Scripts -->
-  <script>
-    function showProjectInfo() {
-      const projectType = document.getElementById('projectType').value;
-      const projectInfo = document.getElementById('projectInfo');
-      if (projectType === 'condo') {
-        projectInfo.textContent = 'The Panora Pattaya: คอนโดมิเนียมสุดหรู ใกล้ชายหาดเพียง 250 ม. พร้อมวิวทะเลพาโนรามา';
-      } else if (projectType === 'house') {
-        projectInfo.textContent = 'บ้านเดี่ยว: พื้นที่กว้างขวาง เหมาะสำหรับครอบครัวใหญ่';
-      } else if (projectType === 'townhome') {
-        projectInfo.textContent = 'ทาวน์โฮม: ดีไซน์โมเดิร์น ราคาเข้าถึงได้';
-      } else {
-        projectInfo.textContent = 'กรุณาเลือกประเภทโครงการ';
-      }
-    }
+	<main class="main-content">
+		<section class="container container-features">
+			<div class="card-feature">
+				<i class="fa-jelly fa-regular fa-user"></i>
+				<div class="feature-content">
+					<span>จองตอนนี้</span>
+					<p>ไม่ต้องแค่ฝัน…วันนี้คุณเป็นเจ้าของได้</p>
+				</div>
+			</div>
+			<div class="card-feature">
+				<i class="fa-solid fa-wallet"></i>
+				<div class="feature-content">
+					<span>การผ่อนชำระ</span>
+					<p>ให้ตัวคุณเลือก…ในงบที่คุณควบคุมได้</p>
+				</div>
+			</div>
+			<div class="card-feature">
+				<i class="fa-solid fa-gift"></i>
+				<div class="feature-content">
+					<span>ของขวัญ</span>
+					<p>เซอร์ไพรส์ครั้งใหญ่…ให้ความสุขยาวนานกว่าใคร</p>
+				</div>
+			</div>
+			<div class="card-feature">
+				<i class="fa-solid fa-headset"></i>
+				<div class="feature-content">
+					<span>ติดต่อสอบถาม</span>
+					<p>บริการลูกค้าตลอด 24 ชั่วโมงทุกวัน</p>
+				</div>
+			</div>
+		</section>
 
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
-    }
+		<section class="container top-categories">
+			<h1 class="heading-1">เลือกคอนโดที่ใช่ ตอบโจทย์ทุกไลฟ์สไตล์ของคุณ</h1>
+			<div class="container-categories">
+				<div class="card-category category-badone">
+					<p>สะดวก</p>
+				</div>
+				<div class="card-category category-badtwo">
+					<p>สะบาย</p>
+				</div>
+				<div class="card-category category-badthree">
+					<p>ทันสมัย</p>
+				</div>
+				<div class="card-category category-badfour">
+					<p>ใส่ใจทุกรายละเอียด</p>
+				</div>
+			</div>
+		</section>
 
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
+		<section class="container top-products">
+			<h1 class="heading-1">แนะนำโครงการ</h1>
 
-    // Fade-in Section
-    function handleFadeIn() {
-      const fadeElements = document.querySelectorAll('.fade-in');
-      fadeElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          el.classList.add('visible');
-        }
-      });
+			<div class="container-options">
+				<span class="active">ยอดนิยม</span>
+				<span>ทั้งหมด</span>
+				<span>ก่อนหน้า</span>
+			</div>
 
-      // Staggered fade-in สำหรับ projects
-      const projectElements = document.querySelectorAll('.project');
-      projectElements.forEach((el, index) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          setTimeout(() => el.classList.add('visible'), index * 200);
-        }
-      });
-    }
+			<div class="container-products">
+				<!-- Condo card -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="img/condo1.jpg" alt="Condo" />
+						<span class="discount">-13%</span>
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+						</div>
+						<h3>คอนโดมิเนี่ยม</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">เริ่มต้นที่ 10 ล้านบาท</p>
+					</div>
+				</div>
+				<!-- Home card -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="img/home.jpg" alt="Home" />
+						<span class="discount">-22%</span>
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<h3>บ้านเดี่ยว</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">เริ่มต้นที่ 20 ล้านบาท</p>
+					</div>
+				</div>
+				<!-- Townhome card -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="img/townhome.jpg" alt="Town Home" />
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+						</div>
+						<h3>ทาวน์โฮม</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">เริ่มต้นที่ 30 ล้านบาท</p>
+					</div>
+				</div>
+				<!--  -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="img/project.jpg" alt="Project Home" />
+					</div>
+					<div class="content-card-product">
+						<div class="stars">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<h3>โครงการพร้อมอยู่</h3>
+						<span class="add-cart">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</span>
+						<p class="price">เริ่มต้นที่ 40 ล้านบาท</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    window.addEventListener('scroll', handleFadeIn);
-    window.addEventListener('load', handleFadeIn);
-  </script>
+		<section class="gallery">
+			<img src="img/gallery1.jpg" alt="Gallery Img1" class="gallery-img-1" /><img src="img/gallery2.jpg"
+				alt="Gallery Img2" class="gallery-img-2" /><img src="img/gallery3.jpg" alt="Gallery Img3"
+				class="gallery-img-3" /><img src="img/gallery4.jpg" alt="Gallery Img4" class="gallery-img-4" /><img
+				src="img/gallery5.jpg" alt="Gallery Img5" class="gallery-img-5" />
+		</section>
+
+		<section class="container blogs">
+			<h1 class="heading-1">ทำไมต้องเลือกเรา</h1>
+
+			<div class="container-blogs">
+				<div class="card-blog">
+					<div class="container-img">
+						<img src="img/blog-1.jpg" alt="Imagen Blog 1" />
+					</div>
+					<div class="content-blog">
+						<h3>ทำเลทอง เดินทางสะดวก</h3>
+						<p>
+							ใกล้รถไฟฟ้าและถนนสายหลัก เดินทางเข้า-ออกเมืองง่าย
+							รายล้อมด้วยห้าง ร้านอาหาร และแหล่งไลฟ์สไตล์ครบครัน
+							เหมาะทั้งอยู่อาศัยเองและลงทุนปล่อยเช่า
+						</p>
+						<div class="btn-read-more">รายละเอียด</div>
+					</div>
+				</div>
+				<div class="card-blog">
+					<div class="container-img">
+						<img src="img/blog-2.jpg" alt="Imagen Blog 2" />
+					</div>
+					<div class="content-blog">
+						<h3>สิ่งอำนวยความสะดวกครบวงจร</h3>
+						<p>
+							สระว่ายน้ำ ฟิตเนส และ Co-working space ทันสมัย
+							พื้นที่ส่วนกลางกว้างขวาง รองรับการพักผ่อนและทำงาน
+							ระบบรักษาความปลอดภัย 24 ชั่วโมง พร้อมกล้อง CCTV
+						</p>
+						<div class="btn-read-more">รายละเอียด</div>
+					</div>
+				</div>
+				<div class="card-blog">
+					<div class="container-img">
+						<img src="img/blog-3.jpg" alt="Imagen Blog 3" />
+					</div>
+					<div class="content-blog">
+						<h3>คุ้มค่าทั้งการอยู่อาศัยและการลงทุน</h3>
+						<p>
+							ราคาเหมาะสมเมื่อเทียบกับทำเลและสิ่งที่ได้รับ
+							ศักยภาพในการเติบโตของมูลค่าในอนาคต
+							มาตรฐานก่อสร้างและดีไซน์ที่ทันสมัยพร้อมเครื่องอำนวยความสะดวกสำหรับคุณ
+						</p>
+						<div class="btn-read-more">รายละเอียด</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container container-footer">
+			<div class="menu-footer">
+				<div class="contact-info">
+					<p class="title-footer">ติดต่อเรา</p>
+					<ul>
+						<li>
+							บริษัท ไมด้า แอสเซ็ท จำกัด (มหาชน)
+						</li>
+						<li>เลขที่ 267 ถนน จรัญสนิทวงศ์ แขวงบางอ้อ </li>
+						<li>โทร: 02-123-4567</li>
+						<li>info@midaasset.com </li>
+					</ul>
+					<div class="social-icons">
+						<span class="facebook">
+							<i class="fa-brands fa-facebook-f"></i>
+						</span>
+						<span class="twitter">
+							<i class="fa-brands fa-twitter"></i>
+						</span>
+						<span class="youtube">
+							<i class="fa-brands fa-youtube"></i>
+						</span>
+						<span class="pinterest">
+							<i class="fa-brands fa-pinterest-p"></i>
+						</span>
+						<span class="instagram">
+							<i class="fa-brands fa-instagram"></i>
+						</span>
+					</div>
+				</div>
+
+				<div class="information">
+					<p class="title-footer">ข้อมูล</p>
+					<ul>
+						<li><a href="#">เกี่ยวกับเรา</a></li>
+						<li><a href="#">ข้อมูลการโอนกรรมสิทธิ์และการส่งมอบ</a></li>
+						<li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
+						<li><a href="#">เงื่อนไขและข้อตกลง</a></li>
+					</ul>
+				</div>
+
+				<div class="my-account">
+					<p class="title-footer">บัญชี</p>
+
+					<ul>
+						<li><a href="#">ประวัติการจอง / การสั่งซื้อ</a></li>
+						<li><a href="#">บัญชีผู้ใช้งาน</a></li>
+						<li><a href="#">รายการโปรด</a></li>
+						<li><a href="#">ข่าวสาร</a></li>
+					</ul>
+				</div>
+
+				<div class="newsletter">
+					<p class="title-footer">จดหมายข่าว</p>
+
+					<div class="content">
+						<p>
+							สมัครรับข่าวสารจากไมด้าคอนโด เพื่อไม่พลาด โครงการใหม่ โปรโมชั่น และข้อเสนอพิเศษเฉพาะคุณ.
+						</p>
+						<input type="email" placeholder="กรอกอีเมลที่นี่...">
+						<button>สมัครรับข่าวสาร</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="copyright">
+				<p>
+					ไมด้า แอสเซ็ท. สงวนลิขสิทธิ์. &copy; 2025
+				</p>
+
+				<img src="img/payment.png" alt="Pagos">
+			</div>
+		</div>
+	</footer>
 </body>
+
 </html>
