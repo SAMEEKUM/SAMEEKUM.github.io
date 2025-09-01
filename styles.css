@@ -26,40 +26,26 @@ html {
 }
 
 .heading-1 {
-	text-align: center;
-	font-weight: 500;
-	font-size: 2rem;
-	color: #f8f7f3;
+    text-align: center;
+    font-weight: 700; /* ปรับเป็น 700 เพื่อให้ตัวหนามากขึ้น */
+    font-size: 2rem;
+    color: #000000;
 }
+
 
 /* ********************************** */
 /*               HEADER               */
 /* ********************************** */
 .container-hero {
-	background-color: var(--background-color);
+	background-color:whitesmoke;
 	color: #f1ab15;
 }
 
 .hero {
 	display: flex;
-	justify-content: space-between;
+	justify-content:center;
 	align-items: center;
 	padding: 2rem 0;
-}
-
-.customer-support {
-	display: flex;
-	align-items: center;
-	gap: 2rem;
-}
-
-.customer-support i {
-	font-size: 3.3rem;
-}
-
-.content-customer-support {
-	display: flex;
-	flex-direction: column;
 }
 
 .container-logo {
@@ -80,125 +66,182 @@ html {
 	letter-spacing: -1px;
 }
 
-.container-user {
-	display: flex;
-	gap: 1rem;
-	cursor: pointer;
-}
 
-.container-user .fa-user {
-	font-size: 3rem;
-	color: var(--primary-color);
-	padding-right: 2.5rem;
-	border-right: 1px solid #e2e2e2;
-}
-
-.container-user .fa-basket-shopping {
-	font-size: 3rem;
-	color: var(--primary-color);
-	padding-left: 1rem;
-}
-
-.content-shopping-cart {
-	display: flex;
-	flex-direction: column;
-}
 
 /* ************* NAVBAR ************* */
 .container-navbar {
-	background-color: var(--primary-color);
+    background-color: rgba(155, 149, 149, 0.50); /* ลดความทึบจาก 0.85 → 0.3 */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+	height: 7rem;
 }
 
 .navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem 0;
+    display: flex;
+    justify-content: space-between; /* ฝั่งซ้ายกับฝั่งขวา */
+    align-items: center;
+    padding: 1rem 2rem;
+	margin-left: 1;
 }
 
-.navbar .fa-bars {
-	display: none;
+/* กลุ่ม Hamburger + เมนู + Search */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* ระยะห่างระหว่าง Hamburger, Menu Text, Search */
 }
 
-.menu {
-	display: flex;
-	gap: 2rem;
+.menu-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* ระยะห่าง Hamburger กับคำว่า "เมนู" */
 }
 
-.menu li {
-	list-style: none;
+.menu-text {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
-.menu a {
-	text-decoration: none;
-	font-size: 1.3rem;
-	color: var(--dark-color);
-	font-weight: 600;
-	text-transform: uppercase;
-	position: relative;
+.fa-bars {
+    font-size: 3rem;
+    color: whitesmoke;
 }
 
-.menu a::after {
-	content: '';
-	width: 1.5rem;
-	height: 1px;
-	background-color: #fff;
-	position: absolute;
-	bottom: -3px;
-	left: 50%;
-	transform: translate(-50%, 50%);
-	opacity: 0;
-	transition: all 0.3s ease;
-}
-
-.menu a:hover::after {
-	opacity: 1;
-}
-
-.menu a:hover {
-	color: #fff;
-}
-
+/* Search Form */
 .search-form {
-	position: relative;
-	display: flex;
-	align-items: center;
-	border: 2px solid #fff;
-	border-radius: 2rem;
-	background-color: #fff;
-	height: 4.4rem;
-	overflow: hidden;
+    display: flex;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 4.4rem;
+    padding: 0 0.5rem;
 }
 
 .search-form input {
-	outline: none;
-	font-family: inherit;
-	border: none;
-	width: 25rem;
-	font-size: 1.4rem;
-	padding: 0 2rem;
-	color: #777;
-	cursor: pointer;
-}
-
-.search-form input::-webkit-search-cancel-button {
-	appearance: none;
+    background-color: transparent;
+    color: #fff;
+    border: none;
 }
 
 .search-form .btn-search {
-	border: none;
-	background-color: var(--primary-color);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	padding: 1rem;
+    border: none;
+    background-color: rgba(193, 191, 190, 0.256);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+    cursor: pointer;
 }
 
 .btn-search i {
-	font-size: 2rem;
-	color: #fff;
+    font-size: 2rem;
+    color: #fff;
 }
+
+/* เมนูหลักฝั่งขวา */
+.right {
+    display: flex;
+    gap: 2rem;
+	margin-left: auto;
+}
+
+
+
+.right li {
+    list-style: none;
+}
+
+.right a {
+    text-decoration: none;
+    font-size: 1.7rem;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.right a::after {
+    content: '';
+    width: 1.5rem;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.right a:hover::after {
+    opacity: 1;
+}
+
+.right a:hover {
+    color: #fff;
+}
+
+/* ======== Side Menu ======== */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 350px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    padding: 2rem 1rem;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.side-menu.active { left: 0; }
+
+.side-menu .close-btn {
+    background: none;
+    border: none;
+    font-size: 3rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.side-menu ul { 
+    list-style: none; 
+    padding: 5rem 0 0 0; 
+}
+
+.side-menu ul li { 
+    margin-bottom: 1.5rem; 
+}
+
+.side-menu ul li a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--dark);
+    font-weight: 600;
+	justify-content: center;
+}
+
+.side-menu ul li a:hover { 
+    color:orange; 
+}
+
+/* ======== Responsive ======== */
+@media (max-width: 992px) {
+    .menu { display: none; } /* ซ่อนเมนูปกติบนมือถือ */
+}
+
+
+
 
 /* ********************************** */
 /*               BANNER               */
@@ -217,8 +260,21 @@ html {
 	padding: 25rem 0;
 }
 
+.contact-banner {
+	max-width: 90rem;
+	margin: 0 auto;
+	padding: 25rem 0;
+}
+
 .content-banner p {
-	color: var(--primary-color);
+	color:whitesmoke;
+	font-size: 1.7rem;
+	margin-bottom: 1rem;
+	font-weight: 500;
+}
+
+.contact-banner p {
+	color:whitesmoke;
 	font-size: 1.7rem;
 	margin-bottom: 1rem;
 	font-weight: 500;
@@ -230,11 +286,28 @@ html {
     margin-bottom: 1px;
 }
 
+.contact-banner h2 {
+	color: #fff;
+	font-size: 5rem;
+    margin-bottom: 1px;
+}
+
 .content-banner a {
 	margin-top: 2rem;
 	text-decoration: none;
 	color: #fff;
-	background-color: var(--primary-color);
+	background-color:rgb(255, 123, 0);
+	display: inline-block;
+	padding: 1rem 3rem;
+	text-transform: uppercase;
+	border-radius: 3rem;
+}
+
+.contact-banner a {
+	margin-top: 2rem;
+	text-decoration: none;
+	color: #fff;
+	background-color:rgb(255, 123, 0);
 	display: inline-block;
 	padding: 1rem 3rem;
 	text-transform: uppercase;
@@ -245,7 +318,11 @@ html {
 /*            MAIN CONTENT            */
 /* ********************************** */
 .main-content {
-	background-color: var(--background-color);
+	background-color:rgb(240, 237, 237);
+}
+
+body {
+	background-color:rgb(240, 237, 237);
 }
 
 /* ********************************** */
@@ -302,6 +379,7 @@ html {
 	margin-bottom: 3rem;
 }
 
+
 .container-categories {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -351,7 +429,7 @@ html {
 
 .card-category p {
 	font-size: 1.9rem;
-	color: #fff;
+	color: #ffffff;
 	text-transform: capitalize;
 	position: relative;
 }
@@ -421,6 +499,9 @@ html {
 }
 
 .card-product {
+	display: block; /* ปรับให้ <a> เป็น block */
+	color: inherit; /* ให้ข้อความสีเหมือนเดิม */
+	text-decoration: none; /* เอาเส้นขีดลิงก์ออก */
 	background-color: #fff;
 	padding: 2rem 2rem;
 	border-radius: 1.5rem;
@@ -977,7 +1058,7 @@ html {
 /* ********************************** */
 
 .footer {
-	background-color: var(--primary-color);
+	background-color: rgb(169, 165, 165);
 }
 
 .container-footer {
@@ -1021,7 +1102,7 @@ html {
 .information ul li,
 .my-account ul li {
 	list-style: none;
-	color: #fff;
+	color: #000000;
 	font-size: 1.4rem;
 	font-weight: 300;
 }
@@ -1029,7 +1110,7 @@ html {
 .information ul li a,
 .my-account ul li a {
 	text-decoration: none;
-	color: #fff;
+	color: #000000;
 	font-weight: 300;
 }
 
@@ -1088,7 +1169,7 @@ html {
 
 .content p {
 	font-size: 1.4rem;
-	color: #fff;
+	color: #000000;
 	font-weight: 300;
 }
 
@@ -1131,7 +1212,7 @@ html {
 
 .copyright {
 	display: flex;
-	justify-content: space-between;
+	justify-content:center;
 	padding-top: 2rem;
 
 	border-top: 1px solid #d2b495;
@@ -1141,6 +1222,91 @@ html {
 	font-weight: 400;
 	font-size: 1.6rem;
 }
+
+/* ********************************** */
+/*        INTERESTING ARTICLES        */
+/* ********************************** */
+.articles {
+    max-width: 120rem;
+    margin: 5rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.articles h2 {
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
+}
+
+.articles h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.article-card {
+    background: #fff;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-6px);
+}
+
+.article-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.article-content h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.article-content p {
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.8rem;
+}
+
+.article-content a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+}
+
+.article-content a:hover {
+    color: #e19610;
+}
+
 
 /* ********************************** */
 /*       MEDIA QUERIES -- 768px       */
@@ -1169,7 +1335,7 @@ html {
 	.navbar .fa-bars {
 		display: block;
 		color: #fff;
-		font-size: 3rem;
+		font-size: 4rem;
 	}
 
 	.menu {
@@ -1259,8 +1425,9 @@ html {
 	}
 
 	.heading-1 {
-		font-size: 2.8rem;
-	}
+    font-size: 2.8rem;
+    color: #333333; /* เปลี่ยนเป็นสีเทาเข้ม */
+}
 
 	.card-feature {
 		flex-direction: column;

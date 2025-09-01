@@ -1090,4 +1090,26 @@ document.addEventListener('DOMContentLoaded', function () {
             containerProducts.appendChild(slider);
         }
     });
+
+    
 });
+
+    const menuToggle = document.getElementById('menu-toggle');
+const sideMenu = document.getElementById('side-menu');
+const closeBtn = document.getElementById('close-btn');
+
+menuToggle.addEventListener('click', () => sideMenu.classList.add('active'));
+closeBtn.addEventListener('click', () => sideMenu.classList.remove('active'));
+
+// ปิด Side Menu เมื่อคลิกพื้นที่ว่าง
+window.addEventListener('click', (e) => {
+    if(e.target === sideMenu) sideMenu.classList.remove('active');
+});
+
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').style.display = 'flex';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}

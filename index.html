@@ -17,47 +17,55 @@
 	<header>
 		<div class="container-hero">
 			<div class="container hero">
-				<div class="customer-support">
-					<i class="fa-solid fa-headset"></i>
-					<div class="content-customer-support">
-						<span class="text">ติดต่อสอบถาม</span>
-						<span class="number">012-345-6789</span>
-					</div>
-				</div>
-
 				<div class="container-logo">
-					<img src="img\logo.png" alt="Baristas Logo" class="logo">
-				</div>
-
-
-				<div class="container-user">
-					<i class="fa-solid fa-user"></i>
-					<i class="fa-solid fa-basket-shopping"></i>
+					<H1>DEMO</H1>
 				</div>
 			</div>
 		</div>
 
 		<div class="container-navbar">
-			<nav class="navbar container">
-				<i class="fa-solid fa-bars"></i>
-				<ul class="menu">
-					<li><a href="#">ติดต่อเรา</a></li>
-					<li><a href="#">โครงการ</a></li>
-					<li><a href="#">บริการ</a></li>
-					<li><a href="#">ความยั่งยืน</a></li>
-					<li><a href="#">ผู้ลงทุนสัมพันธ์</a></li>
-				</ul>
+    <nav class="navbar container">
+        <!-- ฝั่งซ้าย -->
+        <div class="navbar-left">
+            <div class="menu-toggle-wrapper">
+                <i class="fa-solid fa-bars" id="menu-toggle"></i>
+                <span class="menu-text">เมนู</span>
+            </div>
+            <div class="search-wrapper">
+                <form class="search-form">
+                    <button class="btn-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
 
-				<form class="search-form">
-					<input type="search" placeholder="ค้นหาโครงการ..." />
-					<button class="btn-search">
-						<i class="fa-solid fa-magnifying-glass"></i>
-					</button>
-				</form>
-			</nav>
-		</div>
+        <!-- เมนูหลักฝั่งขวา -->
+        <ul class="right">
+			<li><a href="condo.html">คอนโดมิเนียม</a></li>
+            <li><a href="#">บ้านเดี่ยว</a></li>
+            <li><a href="#">ทาวน์โฮม/โฮมออฟฟิศ</a></li>
+            
+        </ul>
+    </nav>
+</div>
+
 	</header>
 
+	<!-- Side Menu -->
+	<div class="side-menu" id="side-menu">
+		<button class="close-btn" id="close-btn">&times;</button>
+		<ul>
+			<li><a href="index.html">หน้าหลัก</a></li>
+			<li><a href="#">ข่าวความเคลื่อนไหว</a></li>
+			<li><a href="#articles">บทความน่าสนใจ</a></li>
+			<li><a href="#">การเสนอขายเสนอเช่าที่ดิน</a></li>
+			<li><a href="#">สมัครเป็นตัวแทนขายอสังหาฯ</a></li>
+			<li><a href="#">เกี่ยวกับเรา</a></li>
+			<li><a href="#">นักลงทุนสัมพันธ์</a></li>
+			<li><a href="contact.html">ติดต่อเรา</a></li>
+		</ul>
+	</div>
 	<section class="banner">
 		<div class="content-banner">
 			<p>Convenient location</p>
@@ -127,10 +135,9 @@
 
 			<div class="container-products">
 				<!-- Condo card -->
-				<div class="card-product">
+				<a href="condo.html" class="card-product">
 					<div class="container-img">
 						<img src="img/condo1.jpg" alt="Condo" />
-						<span class="discount">-13%</span>
 					</div>
 					<div class="content-card-product">
 						<div class="stars">
@@ -141,17 +148,14 @@
 							<i class="fa-solid fa-star"></i>
 						</div>
 						<h3>คอนโดมิเนี่ยม</h3>
-						<span class="add-cart">
-							<i class="fa-solid fa-basket-shopping"></i>
-						</span>
 						<p class="price">เริ่มต้นที่ 10 ล้านบาท</p>
 					</div>
-				</div>
+				</a>
+
 				<!-- Home card -->
-				<div class="card-product">
+				<a href="home.html" class="card-product">
 					<div class="container-img">
 						<img src="img/home.jpg" alt="Home" />
-						<span class="discount">-22%</span>
 					</div>
 					<div class="content-card-product">
 						<div class="stars">
@@ -162,14 +166,12 @@
 							<i class="fa-regular fa-star"></i>
 						</div>
 						<h3>บ้านเดี่ยว</h3>
-						<span class="add-cart">
-							<i class="fa-solid fa-basket-shopping"></i>
-						</span>
 						<p class="price">เริ่มต้นที่ 20 ล้านบาท</p>
 					</div>
-				</div>
+				</a>
+
 				<!-- Townhome card -->
-				<div class="card-product">
+				<a href="townhome.html" class="card-product">
 					<div class="container-img">
 						<img src="img/townhome.jpg" alt="Town Home" />
 					</div>
@@ -182,14 +184,12 @@
 							<i class="fa-solid fa-star"></i>
 						</div>
 						<h3>ทาวน์โฮม</h3>
-						<span class="add-cart">
-							<i class="fa-solid fa-basket-shopping"></i>
-						</span>
 						<p class="price">เริ่มต้นที่ 30 ล้านบาท</p>
 					</div>
-				</div>
-				<!--  -->
-				<div class="card-product">
+				</a>
+
+				<!-- Project card -->
+				<a href="project.html" class="card-product">
 					<div class="container-img">
 						<img src="img/project.jpg" alt="Project Home" />
 					</div>
@@ -202,12 +202,11 @@
 							<i class="fa-regular fa-star"></i>
 						</div>
 						<h3>โครงการพร้อมอยู่</h3>
-						<span class="add-cart">
-							<i class="fa-solid fa-basket-shopping"></i>
-						</span>
 						<p class="price">เริ่มต้นที่ 40 ล้านบาท</p>
 					</div>
-				</div>
+				</a>
+			</div>
+
 			</div>
 		</section>
 
@@ -266,6 +265,40 @@
 				</div>
 			</div>
 		</section>
+
+		<!-- Interesting Articles Section -->
+		<section id="articles" class="articles">
+			<h2>บทความน่าสนใจ</h2>
+			<div class="articles-container">
+				<article class="article-card">
+					<img src="https://www.terrabkk.com/images/articles/0000208888/6f91bc8dc0b5253df62179a796438132.webp" alt="บทความ 1">
+					<div class="article-content">
+						<h3>แนวโน้มอสังหาริมทรัพย์ปี 2025</h3>
+						<p>เจาะลึกเทรนด์ใหม่ของตลาดอสังหาริมทรัพย์ไทย ที่นักลงทุนไม่ควรพลาด...</p>
+						<a href="#">อ่านเพิ่มเติม</a>
+					</div>
+				</article>
+
+				<article class="article-card">
+					<img src="https://www.thepanoracondo.com/wp-content/uploads/2021/08/200722_sky-pool_Final-01.jpg" alt="บทความ 2">
+					<div class="article-content">
+						<h3>เคล็ดลับเลือกคอนโดให้คุ้มค่า</h3>
+						<p>วิธีเลือกคอนโดที่ตอบโจทย์ทั้งการอยู่อาศัยและการลงทุน...</p>
+						<a href="#">อ่านเพิ่มเติม</a>
+					</div>
+				</article>
+
+				<article class="article-card">
+					<img src="https://teachme-biz.com/wp-content/uploads/2024/02/%E0%B9%80%E0%B8%97%E0%B8%A3%E0%B8%99%E0%B8%94%E0%B9%8C%E0%B8%98%E0%B8%B8%E0%B8%A3%E0%B8%81%E0%B8%B4%E0%B8%88%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%81%E0%B8%A3%E0%B8%A1-2024.jpg" alt="บทความ 3">
+					<div class="article-content">
+						<h3>การลงทุนโรงแรมในยุคดิจิทัล</h3>
+						<p>การผสานเทคโนโลยีกับธุรกิจโรงแรม เพื่อเพิ่มมูลค่าและกำไร...</p>
+						<a href="#">อ่านเพิ่มเติม</a>
+					</div>
+				</article>
+			</div>
+		</section>
+
 	</main>
 
 	<footer class="footer">
@@ -281,23 +314,7 @@
 						<li>โทร: 02-123-4567</li>
 						<li>info@midaasset.com </li>
 					</ul>
-					<div class="social-icons">
-						<span class="facebook">
-							<i class="fa-brands fa-facebook-f"></i>
-						</span>
-						<span class="twitter">
-							<i class="fa-brands fa-twitter"></i>
-						</span>
-						<span class="youtube">
-							<i class="fa-brands fa-youtube"></i>
-						</span>
-						<span class="pinterest">
-							<i class="fa-brands fa-pinterest-p"></i>
-						</span>
-						<span class="instagram">
-							<i class="fa-brands fa-instagram"></i>
-						</span>
-					</div>
+					
 				</div>
 
 				<div class="information">
@@ -321,17 +338,7 @@
 					</ul>
 				</div>
 
-				<div class="newsletter">
-					<p class="title-footer">จดหมายข่าว</p>
-
-					<div class="content">
-						<p>
-							สมัครรับข่าวสารจากไมด้าคอนโด เพื่อไม่พลาด โครงการใหม่ โปรโมชั่น และข้อเสนอพิเศษเฉพาะคุณ.
-						</p>
-						<input type="email" placeholder="กรอกอีเมลที่นี่...">
-						<button>สมัครรับข่าวสาร</button>
-					</div>
-				</div>
+				
 			</div>
 
 			<div class="copyright">
@@ -339,7 +346,7 @@
 					ไมด้า แอสเซ็ท. สงวนลิขสิทธิ์. &copy; 2025
 				</p>
 
-				<img src="img/payment.png" alt="Pagos">
+				
 			</div>
 		</div>
 	</footer>

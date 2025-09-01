@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Web Demo</title>
+	<link rel="stylesheet" href="condo.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="animations.js" defer></script>
+</head>
+
+<body>
+	<header>
+		<div class="container-hero">
+			<div class="container hero">
+				<div class="container-logo">
+					<H1>DEMO</H1>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-navbar">
+    <nav class="navbar container">
+        <!-- ฝั่งซ้าย -->
+        <div class="navbar-left">
+            <div class="menu-toggle-wrapper">
+                <i class="fa-solid fa-bars" id="menu-toggle"></i>
+                <span class="menu-text">เมนู</span>
+            </div>
+            <div class="search-wrapper">
+                <form class="search-form">
+                    <button class="btn-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- เมนูหลักฝั่งขวา -->
+        <ul class="right">
+            <li><a href="condo.html">คอนโดมิเนียม</a></li>
+            <li><a href="#">บ้านเดี่ยว</a></li>
+            <li><a href="#">ทาวน์โฮม/โฮมออฟฟิศ</a></li>
+            
+        </ul>
+    </nav>
+</div>
+
+	</header>
+
+	<!-- Side Menu -->
+	<div class="side-menu" id="side-menu">
+		<button class="close-btn" id="close-btn">&times;</button>
+		<ul>
+            <li><a href="index.html">หน้าหลัก</a></li>
+			<li><a href="#">ข่าวความเคลื่อนไหว</a></li>
+			<li><a href="#">บทความหน้าสนใจ</a></li>
+			<li><a href="#">การเสนอขายเสนอเช่าที่ดิน</a></li>
+			<li><a href="#">สมัครเป็นตัวแทนขายอสังหาฯ</a></li>
+			<li><a href="#">เกี่ยวกับเรา</a></li>
+			<li><a href="#">นักลงทุนสัมพันธ์</a></li>
+			<li><a href="#">ติดต่อเรา</a></li>
+		</ul>
+	</div>
+	<section class="banner">
+		<div class="content-banner">
+			
+			<h2>โครงการคอนโดมิเนียม</h2>
+            <p>เลือกโครงการที่เหมาะกับคุณ</p>
+			<a href="#">จองออนไลน์ตอนนี้</a>
+		</div>
+	</section>
+
+	 <!-- Condo Listings -->
+  <main class="main-content">
+    <section class="condo-list">
+      <h2 class="section-title">คอนโดมิเนียม</h2>
+
+      <div class="condo-grid">
+        <!-- Card 1 -->
+        <div class="condo-card">
+          <img src="img/condo1.jpg" alt="MIDA Condo 1">
+          <div class="condo-info">
+            <h3>ตัวอย่าง</h3>
+            <p>เริ่มต้น 2.5 ล้านบาท</p>
+            <a href="condo-detail.html" class="btn-detail">ดูรายละเอียด</a>
+          </div>
+        </div>
+
+        
+      </div>
+    </section>
+  </main>
+
+
+
+	<footer class="footer">
+		<div class="container container-footer">
+			<div class="menu-footer">
+				<div class="contact-info">
+					<p class="title-footer">ติดต่อเรา</p>
+					<ul>
+						<li>
+							บริษัท ไมด้า แอสเซ็ท จำกัด (มหาชน)
+						</li>
+						<li>เลขที่ 267 ถนน จรัญสนิทวงศ์ แขวงบางอ้อ </li>
+						<li>โทร: 02-123-4567</li>
+						<li>info@midaasset.com </li>
+					</ul>
+					
+				</div>
+
+				<div class="information">
+					<p class="title-footer">ข้อมูล</p>
+					<ul>
+						<li><a href="#">เกี่ยวกับเรา</a></li>
+						<li><a href="#">ข้อมูลการโอนกรรมสิทธิ์และการส่งมอบ</a></li>
+						<li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
+						<li><a href="#">เงื่อนไขและข้อตกลง</a></li>
+					</ul>
+				</div>
+
+				<div class="my-account">
+					<p class="title-footer">บัญชี</p>
+
+					<ul>
+						<li><a href="#">ประวัติการจอง / การสั่งซื้อ</a></li>
+						<li><a href="#">บัญชีผู้ใช้งาน</a></li>
+						<li><a href="#">รายการโปรด</a></li>
+						<li><a href="#">ข่าวสาร</a></li>
+					</ul>
+				</div>
+
+				
+			</div>
+
+			<div class="copyright">
+				<p>
+					ไมด้า แอสเซ็ท. สงวนลิขสิทธิ์. &copy; 2025
+				</p>
+
+				
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
